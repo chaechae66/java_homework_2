@@ -128,7 +128,11 @@ public class Print {
     }
 
     public void getScore(){
-       // 구현 예정
+        ArrayList<Student> sortedStudents = db.sortedStudents();
+
+        for (Student student : sortedStudents) {
+            System.out.println(student.getId() + "학번의 학생의 이름은 " + student.getName() + " 이고, 나이는 " + student.getAge() + "세 입니다." + "학생의 현재 점수는 "+ student.getScore() + "점 입니다.");
+        }
     }
 
     public void chart(){

@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Database {
     ArrayList<Student> students = new ArrayList<Student>();
@@ -62,5 +64,17 @@ public class Database {
     public void deleteStudent(String id) {
         Student findedStudent = findStudentByID(id);
         students.remove(findedStudent);
+    }
+
+    public ArrayList<Student> sortedStudents () {
+        ArrayList<Student> copyedStudents = new ArrayList<>();
+
+        for (Student student : students) {
+            copyedStudents.add(student);
+        }
+
+        Collections.sort(copyedStudents, Collections.reverseOrder());
+
+        return copyedStudents;
     }
 }
