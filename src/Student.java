@@ -1,7 +1,8 @@
 public class Student {
     private String name;
     private int age;
-    private int id;
+    private String id;
+    private int score;
 
     public int getAge() {
         return age;
@@ -11,13 +12,18 @@ public class Student {
         return name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public Student(String name, int age, int id) {
+    public int getScore() {
+        return score;
+    }
+
+    public Student(String name, int age, String id,int score) {
         this.name = name;
         this.age = age;
         this.id = id;
+        this.score = score;
     }
 }
