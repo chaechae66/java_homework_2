@@ -1,44 +1,66 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Database {
     ArrayList<Student> students = new ArrayList<Student>();
 
-    public Student FindStudentByID(int id) {
+    public Student findStudentByID(String id) {
         for (Student student : students) {
-            if (student.getId() == id) {
+            if (Objects.equals(student.getId(), id)) {
                 return student;
             }
         }
         return null;
     }
 
-    public boolean IsStudentExist(int id) {
+    public boolean isStudentExist(String id) {
         for (Student student : students) {
-            if (student.getId() == id) {
+            if (Objects.equals(student.getId(), id)) {
                 return true;
             }
         }
         return false;
     }
 
-    public void InsertStudent(Student student) {
+    public boolean isStudentExistByParams(String params) {
+        for (Student student : students) {
+            if (Objects.equals(student.getId(), params) || Objects.equals(student.getName(), params)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public ArrayList<Student> findStudentByParams(String params) {
+        ArrayList<Student> findedStudents = new ArrayList<>();
+        for (Student student : students) {
+            if (Objects.equals(student.getId(), params) || Objects.equals(student.getName(), params)) {
+                findedStudents.add(student);
+            }
+        }
+        return findedStudents;
+    }
+
+
+    public void insertStudent(Student student) {
         students.add(student);
     }
 
-    public ArrayList<Student> ShowStudents() {
+    public ArrayList<Student> showStudents() {
         return students;
     }
 
-    public void modifyStudent(int id, String name, int age) {
-        Student findedStudent = FindStudentByID(id);
+    public void modifyStudent(String id, int age, int score) {
+        Student findedStudent = findStudentByID(id);
         int index = students.indexOf(findedStudent);
-        Student newStudent = new Student(name, age, id);
+        Student newStudent = new Student(findedStudent.getName(), age, id, score);
         students.set(index, newStudent);
     }
 
 
-    public void deleteStudent(int id) {
-        Student findedStudent = FindStudentByID(id);
+    public void deleteStudent(String id) {
+        Student findedStudent = findStudentByID(id);
         students.remove(findedStudent);
     }
 }

@@ -9,7 +9,7 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    print.Insert();
+                    print.insert();
                     break;
                 case 2:
                     print.show();
@@ -22,6 +22,12 @@ public class Main {
                     break;
                 case 5:
                     print.delete();
+                    break;
+                case 6:
+                    print.getScore();
+                    break;
+                case 7:
+                    print.chart();
                     break;
                 case 0:
                     System.out.println("프로그램을 종료합니다.");
