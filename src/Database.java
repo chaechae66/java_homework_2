@@ -1,10 +1,11 @@
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class Database {
     ArrayList<Student> students = new ArrayList<Student>();
+
+    public boolean isEmpty(){
+        return students.isEmpty();
+    }
 
     public Student findStudentByID(String id) {
         for (Student student : students) {
@@ -67,14 +68,19 @@ public class Database {
     }
 
     public ArrayList<Student> sortedStudents () {
-        ArrayList<Student> copyedStudents = new ArrayList<>();
 
-        for (Student student : students) {
-            copyedStudents.add(student);
-        }
+        ArrayList<Student> copyedStudents = new ArrayList<>(students);
 
-        Collections.sort(copyedStudents, Collections.reverseOrder());
+        copyedStudents.sort(Collections.reverseOrder());
 
         return copyedStudents;
+    }
+
+    public int calculateTotalScore() {
+        int totalScore = 0;
+        for (Student student : students) {
+            totalScore += student.getScore();
+        }
+        return totalScore / students.size();
     }
 }
