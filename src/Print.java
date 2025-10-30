@@ -1,3 +1,6 @@
+import common.ExceptionHandler;
+import user.Student;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -168,23 +171,5 @@ public class Print {
         db.deleteStudent(id);
 
         System.out.println("삭제가 완료되었습니다.");
-    }
-
-    public void getScore(){
-        if(db.isEmpty()){
-            System.out.println("등록된 학생이 존재하지 않습니다. 등록부터 이용 부탁드립니다.");
-            return;
-        }
-
-        ArrayList<Student> sortedStudents = db.sortedStudents();
-
-        for (Student student : sortedStudents) {
-            System.out.println("학번: " + student.getId() + " 이름: " + student.getName() + " 나이: " + student.getAge() + " 점수: " + student.getScore());
-        }
-    }
-
-    public void chart(){
-        int normalScore = db.calculateTotalScore();
-        System.out.println("학생들의 평균 점수는 "+normalScore+"점 입니다.");
     }
 }
