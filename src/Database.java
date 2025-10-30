@@ -1,7 +1,11 @@
+import user.Bufferedstream;
+import user.Student;
+
 import java.util.*;
 
 public class Database {
     ArrayList<Student> students = new ArrayList<Student>();
+    Bufferedstream bufferedstream = new Bufferedstream();
 
     public boolean isEmpty(){
         return students.isEmpty();
@@ -47,7 +51,8 @@ public class Database {
 
 
     public void insertStudent(Student student) {
-        students.add(student);
+        bufferedstream.input(student);
+        bufferedstream.read();
     }
 
     public ArrayList<Student> showStudents() {
@@ -74,13 +79,5 @@ public class Database {
         copyedStudents.sort(Collections.reverseOrder());
 
         return copyedStudents;
-    }
-
-    public int calculateTotalScore() {
-        int totalScore = 0;
-        for (Student student : students) {
-            totalScore += student.getScore();
-        }
-        return totalScore / students.size();
     }
 }
