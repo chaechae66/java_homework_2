@@ -1,4 +1,4 @@
-package pay;
+package pay.Object;
 
 public class Cart {
     public int quantity;

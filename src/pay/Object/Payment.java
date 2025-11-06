@@ -1,4 +1,4 @@
-package pay;
+package pay.Object;
 
 public class Payment {
     private int quantity;
@@ -8,5 +8,8 @@ public class Payment {
         this.quantity = quantity;
         this.type = type;
         this.price = price;
+    }
+
+    public Payment() {
     }
 }

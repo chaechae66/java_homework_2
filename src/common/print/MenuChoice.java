@@ -2,10 +2,9 @@ package common.print;
 
 import common.ExceptionHandler;
 
-import java.io.*;
 import java.util.Scanner;
 
-public class Choice {
+public class MenuChoice {
     Scanner input = new Scanner(System.in);
 
 

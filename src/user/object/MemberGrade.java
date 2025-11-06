@@ -1,4 +1,4 @@
-package user;
+package user.object;
 
 public enum MemberGrade {
     BASIC(10),
